@@ -16,6 +16,14 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
+        isOnline: {
+            type: Boolean,
+            default: 0,
+        },
+        image: {
+            type: String,
+            defailt: null,
+        },
     },
     {
         timestamps: true,
