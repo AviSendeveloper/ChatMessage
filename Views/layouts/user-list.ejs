@@ -1,34 +1,36 @@
 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
     <div class="users-container">
         <div class="chat-search-box">
-            <div class="input-group"> <input class="form-control"
-                    placeholder="Search">
-                <div class="input-group-btn"> <button type="button"
-                        class="btn btn-info"> <i class="fa fa-search"></i>
+            <div class="input-group"> <input class="form-control" placeholder="Search">
+                <div class="input-group-btn"> <button type="button" class="btn btn-info"> <i class="fa fa-search"></i>
                     </button> </div>
             </div>
         </div>
         <ul class="users">
-            <% if (users.length) { %>
-                <% for (user of users) { %>
-                    <li class="person" data-chat="person1">
-                        <div class="user"> <img
-                                src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                alt="Retail Admin" /> <span
-                                class="status busy"></span> </div>
+            <% if (userList.length) { %>
+                <% for (user of userList) { %>
+                    <li class="person" data-chat-user="<%= user._id %>" id="<%= user._id %>-user">
+                        <div class="user"> <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                                alt="Retail Admin" />
+                            <% if (user.isOnline==true) { %>
+                                <span class="status online"></span>
+                                <% } else { %>
+                                    <span class="status offline"></span>
+                                    <% } %>
+                        </div>
                         <p class="name-time"> <span class="name">
                                 <%= user.name %>
                             </span>
                             <!-- <span class="time">15/02/2019</span> --> </p>
                     </li>
-                <% } %>
-                <% } else { %>
-                <li class="person" data-chat="person1">
-                    <div class="user">
-                        <p>No user found</p>
-                    </div>
-                </li>
-            <% } %>
+                    <% } %>
+                        <% } else { %>
+                            <li class="person" data-chat="person1">
+                                <div class="user">
+                                    <p>No user found</p>
+                                </div>
+                            </li>
+                            <% } %>
         </ul>
     </div>
 </div>
